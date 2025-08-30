@@ -1,0 +1,393 @@
+﻿input[type="checkbox"]:disabled {
+    opacity: 1;
+    pointer-events: none;
+    color: inherit;
+    background-color: inherit;
+}
+
+#rememberPasswordText {
+    color: white;
+}
+
+#rememberPassword {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+#rememberPassword:checked {
+    background-color: #525f7a;
+    border-color: #525f7a;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+#fadeOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(19, 19, 19, 0.9), rgba(19, 19, 19, 0) 40%);
+}
+
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::before {
+    background: radial-gradient(circle at 15% 30%, #525f7a 10%, transparent 50%),
+        radial-gradient(circle at 60% 70%, #525f7a 10%, transparent 50%),
+        radial-gradient(circle at 90% 20%, #525f7a 10%, transparent 50%),
+        radial-gradient(circle at 40% 80%, #525f7a 10%, transparent 50%);
+    animation: pulse 10s infinite alternate ease-in-out;
+    opacity: 0.15;
+}
+
+body::after {
+    background: radial-gradient(circle at 25% 15%, #525f7a 10%, transparent 50%),
+        radial-gradient(circle at 80% 60%, #525f7a 10%, transparent 50%),
+        radial-gradient(circle at 30% 80%, #525f7a 10%, transparent 50%),
+        radial-gradient(circle at 70% 40%, #525f7a 10%, transparent 50%);
+    animation: pulse 15s infinite alternate ease-in-out;
+    opacity: 0.15;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow: 0px 0px 10px rgba(82, 95, 122, 0.5);
+    }
+
+    50% {
+        box-shadow: 0px 0px 30px rgba(82, 95, 122, 0.7);
+    }
+}
+
+.glow {
+    animation: glow 2s infinite ease-in-out;
+}
+
+button {
+    background-color: #282828;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(82, 95, 122, 0.7);
+}
+
+html,
+body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+}
+
+#alertDialog {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    max-width: 300px;
+    width: 90%;
+}
+
+#alertDialog article {
+    background-color: #282828;
+    color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#alertDialog #alertMessage {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+#alertDialog article button {
+    background-color: #525f7a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#alertDialog article button:hover {
+    background-color: #3a4358;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#alertDialog[open] {
+    animation: fadeIn 0.2s ease-out;
+}
+
+#refreshNote {
+    background-color: transparent !important;
+    text-align: center;
+}
+
+#refreshNote article {
+    background-color: #282828 !important;
+    color: white !important;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+#viewButton {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #282828;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+body {
+    background-color: #131313;
+}
+
+#uploadFile {
+    background-color: #282828;
+    padding: 40px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+main,
+header {
+    max-width: 700px !important;
+    margin: 0 auto;
+}
+
+.centeredContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#refreshNote {
+    display: none;
+}
+
+#uploadFile button {
+    margin: 10px 5px;
+}
+
+@media (max-width: 700px) {
+    #uploadFile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #uploadFile button {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+    }
+}
+
+#passwordField {
+    background-color: #282828;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 200px;
+    margin-top: 10px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 10px #3a4358, 0 0 8px #3a4358;
+}
+
+#passwordField:focus {
+    border: none;
+    outline: none;
+    box-shadow: 0 0 15px #525f7a, 0 0 10px #525f7a;
+    transition: box-shadow 1s ease-in-out;
+}
+
+#configContainer input[type="file"],
+#renderContainer input[type="file"] {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#applyconfigbutton,
+#viewButton {
+    display: block;
+    margin-top: 5px;
+}
+
+#applyconfigbutton {
+    min-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.button-success {
+    background-color: #525f7a;
+    transition: background-color 0.5s ease;
+}
+
+.button-success::after {
+    content: '\2713';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+}
+
+.button-success span {
+    visibility: hidden;
+}
+
+#applyconfigbutton,
+#passwordField,
+#viewbutton {
+    min-width: 200px;
+    min-height: 40px;
+}
+
+#rememberedpasswordbutton {
+    background-color: #525f7a;
+}
+
+#passwordmanagement {
+    background-color: #282828;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#passwordmanagement button {
+    margin: 10px 5px;
+}
+
+#rememberedpasswordbutton,
+#clearPasswordButton,
+#savedfilebutton {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(82, 95, 122, 0.7);
+}
+
+#rememberedpasswordbutton,
+#savedfilebutton {
+    background-color: #525f7a;
+}
+
+@media (max-width: 700px) {
+    #passwordmanagement {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #passwordmanagement button {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+    }
+}
+
+#passwordmanagement {
+    display: none;
+}
+
+#initial-setup-title {
+    color: white;
+    font-size: 26px;
+    font-family: sans-serif;
+}
+
+.inline-icon {
+    vertical-align: middle;
+    height: 1em;
+    width: auto;
+}
+
+#loadingOverlay {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}
